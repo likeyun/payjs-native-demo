@@ -1,0 +1,77 @@
+*{margin:0px;padding: 0px;}
+body{
+    background: #F8F9FB;
+}
+
+#pay{
+    width: 160px;
+    height: 60px;
+    background: #56b273;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 60px;
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    margin:300px auto 0;
+    -webkit-tap-highlight-color:rgba(255,0,0,0);
+    cursor: pointer;
+}
+
+#pay:hover{
+    background: #36a358;
+}
+
+#qrcode .imgcon{
+    width: 350px;
+    height: 400px;
+    margin:50px auto 0;
+}
+
+#qrcode img{
+    margin:24px 24px;
+}
+
+#payjs_order_id{
+    text-align: center;
+    margin-top: -30px;
+}
+
+#total_fee{
+    text-align: center;
+    font-size: 35px;
+    color: #56b273;
+}
+
+#checkbtn{
+    width: 130px;
+    height: 45px;
+    margin:10px auto;
+}
+
+#checkbtn .check{
+    width: 130px;
+    height: 45px;
+    background: #56b273;
+    margin:10px auto;
+    border:none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    font-size: 17px;
+    -webkit-appearance:none;
+    -webkit-tap-highlight-color:rgba(255,0,0,0);
+}
+
+#checkbtn .check:hover{
+    background: #36a358;
+}
+
+#success{
+    text-align: center;
+    font-size: 17px;
+    color: #56b273;
+    font-weight: bold;
+}
