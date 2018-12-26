@@ -5,7 +5,9 @@ PAYJS 旨在解决需要使用交易数据流的个人、创业者、个体户�
 
 PAYJS 只负责信息流，不接管资金流。资金无任何风险。
 
-https://payjs.cn/ref/DNXBJD
+开始使用PAYJS:https://payjs.cn/ref/DNXBJD
+
+成品demo:http://liketube.cn/payjs/
 
 
 
