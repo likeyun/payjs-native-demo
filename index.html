@@ -1,0 +1,80 @@
+<!-- 此页面是前端页面展示二维码、订单信息的 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>PAYJS同步通知支付demo</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="payjs.css">
+    <!-- 发起支付 -->
+    <script>
+        $(function(){
+            $("#pay").click(function(){
+                $.ajax({
+                    type:"GET",
+                    url:"pay.php",
+                    dataType:"json",
+                    success:function(data){
+                        $("#qrcode").html("<div class=\"imgcon\"><img src=http://qr.liantu.com/api.php?text="+ data.code_url +"></div>");
+                        $("#order_id").html("<input name=\"payjs_order_id\" type=\"text\" value=" +data.payjs_order_id +">");
+                        $("#checkbtn").html("<input type=\"button\" class=\"check\" value=\"支付OR未支付\" onclick=\"check()\">");
+                        $("#payjs_order_id").html("<h2 style=\"text-align: center;\">订单号</h2><br/><br/><h2 id=\"payjs_order_id\">"+ data.payjs_order_id +"</h2>");
+                        $("#total_fee").html("<h2>"+ data.total_fee +"分</h2>");
+                    }
+                })
+            })
+        })
+    </script>
+
+    <!-- 查询订单 -->
+    <script type="text/javascript">
+        function check() {
+            $.ajax({
+                type: "POST",//方法
+                url: "check.php" ,//表单接收url
+                data: $('#form1').serialize(),
+                success: function (data) {
+                    console.log(data.status);
+                    if (data.status == 1) {
+                        var result=document.getElementById("success");
+                        result.innerHTML="已支付，多谢大佬！";
+                    }else{
+                        var result=document.getElementById("success");
+                        result.innerHTML="还没给钱呢，哥~"
+                    }
+                },
+                error : function(data) {
+                    var result=document.getElementById("success");
+                    result.innerHTML="服务器错误！";
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="pay">发起支付</div>
+    <div id="qrcode"></div>
+    <div id="payjs_order_id"></div>
+    <div id="total_fee"></div>
+    <form id="form1" onsubmit="return false" action="##" method="post">
+        <span id="order_id" style="display: none;"></span><br/>
+        <div id="checkbtn"></div><br/>
+        <div id="success"></div>
+    </form>
+</body>
+
+<!-- 点击支付按钮后隐藏支付按钮 -->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#pay").click(function(){
+    $(this).hide();
+  });
+});
+</script>
+</html>
