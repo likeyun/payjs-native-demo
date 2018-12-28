@@ -43,6 +43,9 @@
                     if (data.status == 1) {
                         var result=document.getElementById("success");
                         result.innerHTML="已支付，多谢大佬！";
+                        //若支付后需要跳转，请在下面修改需要跳转的地址，可带参数
+                        //获取后端返回的参数是data.xxx,例如返回订单号是data.payjs_order_id,返回订单金额是data.total_fee
+                        //location.href="xxxx.php?total_fee=" + data.total_fee;
                     }else{
                         var result=document.getElementById("success");
                         result.innerHTML="还没给钱呢，哥~"
