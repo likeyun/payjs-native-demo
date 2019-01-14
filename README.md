@@ -7,7 +7,8 @@ PAYJS 只负责信息流，不接管资金流。资金无任何风险。
 
 开始使用PAYJS:https://payjs.cn/ref/DNXBJD
 
-成品demo:http://liketube.cn/payjs/
+同步demo:http://liketube.cn/payjs/tongbu/
+异步demo:http://liketube.cn/payjs/
 
 2019-1-14增加异步通知
 
