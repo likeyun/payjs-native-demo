@@ -9,6 +9,6 @@ PAYJS 只负责信息流，不接管资金流。资金无任何风险。
 
 成品demo:http://liketube.cn/payjs/
 
-
+2019-1-14增加异步通知
 
 
